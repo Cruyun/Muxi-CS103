@@ -22,6 +22,7 @@ int fillColor(GBufferedImage& image, int x, int y, int newColor, int pixel);
 void personalCurriculum(Map<string, Vector<string>> & prereqMap,string goal);
 void curriculumHelper(Map<string, Vector<string>> & prereqMap, string goal, Set<string> & printed);
 string generate(Map<string, Vector<string> > & grammar, string symbol);
+string random(Vector<string> vector);
 
 /************************************
  *    Greatest Common Denominator   *
@@ -132,10 +133,23 @@ void personalCurriculum(Map<string, Vector<string>> & prereqMap,string goal) {
 //}
 string random(Vector<string> vector){
     int getRan = randomInteger(0, int (vector.size() - 1));
-    int i = vector[getRan];
+    string i = vector[getRan];
 
     return i;
 }
 
 string generate(Map<string, Vector<string> > & grammar, string symbol) {
-}
+    string words;
+
+    if(grammar.containsKey(symbol)){
+        string option = random(grammar[symbol]);
+        TokenScanner scanner(option);
+        while(scanner.hasMoreTokens()){
+            string token = scanner.nextToken();
+            words += generate(grammar, symbol);
+        }} else
+            words += symbol;
+
+    return words;
+    }
+
