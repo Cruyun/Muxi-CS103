@@ -58,7 +58,7 @@ void serpinskiiHelper(GWindow &w, int leftX, int leftY, int size, int order) {
     double height = calculateheight(size);
 
     if (order == 1) {
-            w.drawLine(leftX, leftY, leftX + size, leftY);
+            w.drawLine(leftX, leftY, leftX + size, leftY); //gw.drawLine(x1, y1, x2, y2);
             w.drawLine(leftX, leftY, leftX + size / 2, leftY + height);
             w.drawLine(leftX + size, leftY, leftX + size / 2, leftY + height);
         }
