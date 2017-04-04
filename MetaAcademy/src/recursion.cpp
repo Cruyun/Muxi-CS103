@@ -132,7 +132,7 @@ void personalCurriculum(Map<string, Vector<string>> & prereqMap,string goal) {
 //   // do something with token
 //}
 string random(Vector<string> vector){
-    int getRan = randomInteger(0, int (vector.size() - 1));
+    int getRan = randomInteger(0, (vector.size() - 1));
     string i = vector[getRan];
 
     return i;
@@ -146,7 +146,7 @@ string generate(Map<string, Vector<string> > & grammar, string symbol) {
         TokenScanner scanner(option);
         while(scanner.hasMoreTokens()){
             string token = scanner.nextToken();
-            words += generate(grammar, symbol);
+            words += generate(grammar, token);
         }} else
             words += symbol;
 
